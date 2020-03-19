@@ -24,7 +24,7 @@ app = Flask(__name__)
 # mysql = MySQL(app)
 
 # Register Form Class
-mydb = mysql.connector.connect(host = "127.0.0.1", user = "root",database = "users")
+mydb = mysql.connector.connect(host = "", user = "",database = "")
 email_id = ''  
 fh_2fa = ''
 # creates SMTP session 
@@ -32,7 +32,7 @@ s = smtplib.SMTP('smtp.gmail.com')
 # Authentication
 s.starttls()
 # start TLS for security
-s.login("sushilraverkar007@gmail.com", "Youcanthackme789")
+s.login("", "")
  #create object of the connection
 def pass_val(passwd):
     while True:
@@ -78,7 +78,7 @@ def register():
 # User login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    sender_address = 'sushilraverkar007@gmail.com'
+    sender_address = ''
     message = MIMEMultipart()
     message['From'] = sender_address
     message['Subject'] = 'OTP From Green Thumb'
@@ -133,5 +133,5 @@ def otp_auth():
     return "Welcome to Green Thumb"
 
 if __name__ == '__main__':
-    app.secret_key='secret123'
+    app.secret_key=''
     app.run(debug=True)
